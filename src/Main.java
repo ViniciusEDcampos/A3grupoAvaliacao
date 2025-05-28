@@ -13,6 +13,8 @@ public class Main {
         boolean continuar = true;
         int opcao = 0;
 
+        int soma = 0;
+
         System.out.println("Escolha a opção que deseja usar: ");
         System.out.println(" 1 - Criar novo registro"
                 + "\n 2 - Listar todos os Registros"
