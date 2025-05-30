@@ -6,14 +6,15 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
 
-        ArrayList<AlunoAcademia> list = new ArrayList<>();
-        Scanner scanner = new Scanner(System.in);
+        ArrayList<AlunoAcademia> Registros = new ArrayList<>();
+        Scanner entrada = new Scanner(System.in);
 
-        System.out.println("----- Academia PedroFit -----");
+        System.out.println("----- Academia OxyFit -----\n");
         boolean continuar = true;
         int opcao = 0;
+        
 
-        System.out.println("Escolha a opção que deseja usar: ");
+        System.out.println("Escolha a opção que deseja utilizar: \n");
         System.out.println(" 1 - Criar novo registro"
                 + "\n 2 - Listar todos os Registros"
                 + "\n 3 - Buscar registro por matricula"
@@ -23,13 +24,14 @@ public class Main {
 
         //verificação se o que a pessoa digitou e um numero
         while (true) {
-            if (scanner.hasNextInt()) {
-                opcao = scanner.nextInt();
-                scanner.nextLine(); // consome a quebra de linha
+            if (entrada.hasNextInt()) {
+                opcao = entrada.nextInt();
+                entrada.nextLine(); // consome a quebra de linha
                 break; // sai do loop se foi digitado um número
+
             } else {
                 System.out.println("Entrada inválida! Digite apenas números.");
-                scanner.nextLine(); // consome a entrada inválida
+                entrada.nextLine(); // consome a entrada inválida
             }
         }
 
@@ -42,30 +44,98 @@ public class Main {
 
         switch (opcao) {
             case 1:
+                AlunoAcademia alunov1 = new AlunoAcademia();
 
-            break;
+                System.out.println("---- Informações  necessárias para Registro----");
 
-            case 2:
+                System.out.println(" Digite o Nome do Aluno");
+                alunov1.setNome(entrada.nextLine());
 
-            break;
+                System.out.println("Digite a Matricula do Aluno");
+                alunov1.setMatricula(entrada.nextLine());
 
-            case 3:
+                System.out.println("Digite o Endereço do Aluno");
+                alunov1.setEndereco(entrada.nextLine());
 
-            break;
+                System.out.println("Digite a Cidade do Aluno");
+                alunov1.setCidade(entrada.nextLine());
 
-            case 4:
+                System.out.println("Digite o CPF do Aluno");
+                alunov1.setCpf(entrada.nextLine());
 
-            break;
+                System.out.println(" Digite o CEP do Aluno");
+                alunov1.setCep(entrada.nextLine());
 
-            case 5:
+                System.out.println("Digite o Telefone do Aluno");
+                alunov1.setTelefone(entrada.nextLine());
 
-            break;
+                System.out.println("Digite o RG do Aluno");
+                alunov1.setRg(entrada.nextLine());
 
-            case 6:
+                System.out.println("Digite o Email do Aluno");
+                alunov1.setEmail(entrada.nextLine());
 
-            break;
+                System.out.println("Digite a Data de Nascimento do Aluno");
+                alunov1.setDataNascimento(entrada.nextLine());
 
-            default:
+                System.out.println("Digite o sexo do Aluno");
+                alunov1.setSexo(entrada.nextLine());
+
+                System.out.println("Digite o Plano escolhido ");
+                alunov1.setPlanoAcademia(entrada.nextLine());
+
+                Registros.add(alunov1);
+
+                System.out.println("Parabéns seu cadastro foi concluido");
+                break;
+
+                case 2:
+                System.out.println("----Lista de todos os Registros----");
+
+                for (AlunoAcademia listaAlunos : Registros ) {
+
+                    System.out.println(listaAlunos);
+                }
+                break;
+
+                case 3:
+                System.out.println(" ----Buscar dados Matricula----");
+                System.out.println("Informe o numero de matricula do Aluno: ");
+                String matricula = entrada.nextLine();
+
+                AlunoAcademia  alunoEncontrado = null;
+
+                for (AlunoAcademia listaAlunos : Registros) {
+                    if (listaAlunos.getMatricula().equals(matricula)) {
+                        alunoEncontrado = listaAlunos;
+                        break;
+                    }
+                }
+                if (alunoEncontrado != null) {
+                    System.out.println("Aluno encontrado");
+                    System.out.println(alunoEncontrado);
+
+                }else{
+
+                        System.out.println("Nenhum aluno encontrado");
+                }
+
+
+                break;
+
+                case 4:
+
+                break;
+
+                case 5:
+
+                break;
+
+                case 6:
+
+                break;
+
+                default:
                 System.out.println("Digite algum numero valido!");
                 break;
         }
